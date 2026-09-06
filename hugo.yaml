@@ -1,0 +1,14 @@
+baseURL: 'https://my-blog.pages.dev/'
+languageCode: 'zh-cn'
+title: '我的个人日记本'
+
+params:
+  homeInfoParams:
+    title: "👋 欢迎来到我的博客"
+    content: "记录生活与总结人生"
+
+menu:
+  main:
+    - name: 标签
+      url: tags/
+      weight: 10
