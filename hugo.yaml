@@ -1,5 +1,5 @@
 # 必须为带 https:// 的完整 URL（填你的 .pages.dev 域名或 .xyz 域名均可）
-baseURL: 'https://my-blog.pages.dev/'
+baseURL: 'https://blog.sunny2758.xyz/'
 
 languageCode: 'zh-cn'
 title: '我的个人日记本'
