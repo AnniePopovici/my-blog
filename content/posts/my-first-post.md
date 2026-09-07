@@ -12,5 +12,5 @@ tags: ["随笔", "日记"]
 
 
 
-![好看的女生](/static/images/jay.jpg)
+![好看的女生](/images/jay.jpg)
 
