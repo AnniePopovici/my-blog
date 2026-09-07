@@ -4,6 +4,10 @@ baseURL: 'https://blog.sunny2758.xyz/'
 languageCode: 'zh-cn'
 title: '我的个人日记本'
 
+# 将摘要长度调极大，即使不点进详情页，首页也能直接看完整全文
+summaryLength: 999999
+
+
 params:
   homeInfoParams:
     title: "👋 欢迎来到我的博客"
