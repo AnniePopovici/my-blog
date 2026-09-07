@@ -10,8 +10,6 @@ tags: ["随笔", "日记"]
 
 记录生活，总结人生。从今天开始，我的文字和数据彻底属于我自己了。
 
-![好看的女生](/images/jay.jpg)
 
-static/images/jay.jpg
 
-![女生](/static/images/jay.jpg)
+![好看的女生](/static/images/jay.jpg)
