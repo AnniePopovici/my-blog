@@ -14,6 +14,3 @@ tags: ["随笔", "日记"]
 
 ![好看的女生](/static/images/jay.jpg)
 
-Hints：
- # 插入图片的格式为：   ![图片描述](/images/20260907.jpg)
-
