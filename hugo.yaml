@@ -1,14 +1,18 @@
-baseURL: 'https://my-blog.pages.dev/'
+# 1. 改为相对路径 '/'，彻底解决不同域名下文章点击打不开、404 的问题
+baseURL: '/'
+
 languageCode: 'zh-cn'
 title: '我的个人日记本'
+
+# 2. 将摘要截断长度调至极大，让首页直接显示每篇日记的完整全文
+summaryLength: 999999
 
 params:
   homeInfoParams:
     title: "👋 欢迎来到我的博客"
     content: "记录生活与总结人生"
 
-menu:
-  main:
-    - name: 标签
-      url: tags/
-      weight: 10
+  # 页面交互增强
+  ShowReadingTime: true       # 显示阅读时间
+  ShowWordCount: true         # 显示字数
+  ShowPostNavLinks: true      # 底部显示上一篇/下一篇切换
