@@ -44,12 +44,3 @@ params:
   banner:
     title: '我的个人日记本'
     subtitle: '记录生活，总结人生'
-
-  # 左栏「博主信息」卡片，改这里即可
-  blogger:
-    name: '老刘'
-    avatar: 'images/avatar.svg'
-    level: 6
-    follows: 12
-    fans: 58
-    bio: '记录生活，总结人生。喜欢读书、投资和足球，也喜欢一只可爱的猫。'

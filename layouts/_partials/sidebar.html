@@ -1,39 +1,9 @@
-{{- $b := site.Params.blogger -}}
-{{- $avatar := $b.avatar | default "images/avatar.svg" -}}
-
-<div class="card">
-    <div class="card-head">博主信息</div>
-    <div class="card-body">
-        <div class="owner">
-            <div class="owner-avatar">
-                <img src="{{ $avatar | relURL }}" alt="{{ $b.name | default site.Title }}">
-            </div>
-            <div class="owner-info">
-                <div class="owner-name">{{ $b.name | default site.Title }}</div>
-                <div class="owner-level"><span class="dot"></span>博客等级: {{ $b.level | default 1 }}</div>
-                <div class="owner-stat">共 {{ len (where site.RegularPages "Type" "in" site.Params.mainSections) }} 篇</div>
-            </div>
-        </div>
-        <div class="owner-stat-row">
-            关注: <b>{{ $b.follows | default 0 }}</b>
-            <span class="bar">|</span>
-            粉丝: <b>{{ $b.fans | default 0 }}</b>
-        </div>
-        {{- with $b.bio }}
-        <p class="owner-bio">{{ . }}</p>
-        {{- end }}
-    </div>
-    {{- with site.GetPage "/posts" }}
-    <a class="card-more" href="{{ .RelPermalink }}">&gt;&gt; 全部博文（{{ len .RegularPagesRecursive }} 篇）</a>
-    {{- end }}
-</div>
-
 {{- with site.Taxonomies.tags }}
 <div class="card">
     <div class="card-head">博客分类</div>
     <div class="card-body tight">
         <ul class="cat-list">
-            {{- range first 9 .ByCount }}
+            {{- range first 12 .ByCount }}
             {{- $count := .Count }}
             {{- with .Page }}
             <li>
@@ -48,29 +18,5 @@
     {{- with site.GetPage "/tags" }}
     <a class="card-more" href="{{ .RelPermalink }}">&gt;&gt; 查看所有分类</a>
     {{- end }}
-</div>
-{{- end }}
-
-{{- $album := slice }}
-{{- range (readDir "static/images") }}
-{{- $n := .Name }}
-{{- if and (not .IsDir) (gt .Size 20000) (lt .Size 400000) }}
-{{- if or (hasSuffix $n ".jpg") (hasSuffix $n ".jpeg") (hasSuffix $n ".png") (hasSuffix $n ".webp") }}
-{{- $album = $album | append $n }}
-{{- end }}
-{{- end }}
-{{- end }}
-{{- with $album }}
-<div class="card">
-    <div class="card-head">最新相册</div>
-    <div class="card-body tight">
-        <div class="album-grid">
-            {{- range first 4 . }}
-            <a href="{{ printf "images/%s" . | relURL }}" target="_blank" rel="noopener">
-                <img src="{{ printf "images/%s" . | relURL }}" alt="{{ . }}" loading="lazy">
-            </a>
-            {{- end }}
-        </div>
-    </div>
 </div>
 {{- end }}
