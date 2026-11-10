@@ -1,5 +1,5 @@
 {{- if not .Date.IsZero }}<span title="{{ .Date.Format "2006-01-02 15:04" }}">{{ .Date.Format "2006-01-02" }}</span>{{ end -}}
 {{- $tags := .GetTerms "tags" -}}
 {{- with $tags }}<span class="bar">|</span><span>分类：{{ range $i, $t := . }}{{ if $i }}、{{ end }}<a href="{{ $t.RelPermalink }}">{{ $t.LinkTitle }}</a>{{ end }}</span>{{ end -}}
-{{- if .IsPage }}<span class="bar">|</span><span>字数({{ .WordCount }})</span>{{ end -}}
+{{- if .IsPage }}{{- $txt := .Plain | replaceRE `\s+` "" -}}<span class="bar">|</span><span>字数({{ countrunes $txt }})</span>{{ end -}}
 {{- with .Params.author }}<span class="bar">|</span><span>作者：{{ . }}</span>{{ end -}}
