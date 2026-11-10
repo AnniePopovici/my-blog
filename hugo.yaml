@@ -4,19 +4,52 @@ baseURL: 'https://blog.sunny2758.xyz/'
 languageCode: 'zh-cn'
 title: '我的个人日记本'
 
-# 将摘要长度调极大，即使不点进详情页，首页也能直接看完整全文
+# 摘要长度（首页由模板统一截断展示，这里保留极大值以防摘要被切）
 summaryLength: 999999
 
+# 首页每页显示的文章数
+pagination:
+  pagerSize: 6
+
+# 供搜索页使用的 JSON 索引
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# 代码高亮使用 CSS 类，交由皮肤样式控制
+markup:
+  highlight:
+    noClasses: false
 
 params:
-  homeInfoParams:
-    title: "👋 欢迎来到我的博客"
-    content: "记录生活与总结人生"
+  mainSections:
+    - posts
 
-  # PaperMod 首页直接显示文章全文的原生开关
-  ShowFullTextInHTML: true
+  description: '记录生活，总结人生。'
+  keywords: ['日记', '随笔', '经济观察', '个人博客']
 
-  # 页面交互增强
-  ShowReadingTime: true       # 显示阅读时间
-  ShowWordCount: true         # 显示字数
-  ShowPostNavLinks: true      # 文章底部显示“上一篇/下一篇”
+  # 界面开关
+  disableThemeToggle: true      # 固定浅色，不提供深浅色切换
+  defaultTheme: light
+  disableScrollToTop: false
+  ShowPostNavLinks: true        # 文章底部显示上一篇/下一篇
+  ShowCodeCopyButtons: true     # 代码块复制按钮
+  ShowShareButtons: false
+  footer:
+    hideCopyright: false
+
+  # 横幅（蓝色天空图 + 楷体大标题）
+  banner:
+    title: '我的个人日记本'
+    subtitle: '记录生活，总结人生'
+
+  # 左栏「博主信息」卡片，改这里即可
+  blogger:
+    name: '老刘'
+    avatar: 'images/avatar.svg'
+    level: 6
+    follows: 12
+    fans: 58
+    bio: '记录生活，总结人生。喜欢读书、投资和足球，也喜欢一只可爱的猫。'

@@ -1,3 +1,9 @@
 {{- define "main" }}
-<div class="not-found">404</div>
-{{- end }}{{/* end main */ -}}
+<div class="article">
+  <div class="center-404">
+    <h1>404</h1>
+    <p>你要找的页面不存在，可能是链接过期或文章已被移动。</p>
+    <p><a href="{{ "" | relLangURL }}">« 返回首页</a></p>
+  </div>
+</div>
+{{- end }}{{/* end main */}}

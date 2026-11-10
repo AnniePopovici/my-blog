@@ -1,25 +1,5 @@
-{{- $scratch := newScratch }}
-
-{{- if not .Date.IsZero -}}
-    {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default ":date_long" site.Params.DateFormat)))) }}
-{{- end }}
-
-{{- if (.Param "ShowReadingTime") -}}
-    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime)))) }}
-{{- end }}
-
-{{- if (.Param "ShowWordCount") -}}
-    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "words" .WordCount | default (printf "%d words" .WordCount)))) }}
-{{- end }}
-
-{{- if not (.Param "hideAuthor") -}}
-    {{- with (partial "author.html" .) }}
-        {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" .)) }}
-    {{- end }}
-{{- end }}
-
-{{/* Combine all meta information into a single string with separators and render it as HTML.*/}}
-
-{{- with ($scratch.Get "meta") }}
-    {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
-{{- end -}}
+{{- if not .Date.IsZero }}<span title="{{ .Date.Format "2006-01-02 15:04" }}">{{ .Date.Format "2006-01-02" }}</span>{{ end -}}
+{{- $tags := .GetTerms "tags" -}}
+{{- with $tags }}<span class="bar">|</span><span>分类：{{ range $i, $t := . }}{{ if $i }}、{{ end }}<a href="{{ $t.RelPermalink }}">{{ $t.LinkTitle }}</a>{{ end }}</span>{{ end -}}
+{{- if .IsPage }}<span class="bar">|</span><span>字数({{ .WordCount }})</span>{{ end -}}
+{{- with .Params.author }}<span class="bar">|</span><span>作者：{{ . }}</span>{{ end -}}
